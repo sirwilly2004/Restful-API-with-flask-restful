@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe List</title>
+</head>
+<body>
+    <h1>List of Cafes</h1>
+    <ul>
+        <!-- Loop through the cafes and display their information -->
+        {% for cafe in cafes %}
+            <li>
+                <h2>{{ cafe.name }}</h2>
+                <p>Location: {{ cafe.location }}</p>
+                <p>Seats: {{ cafe.seats }}</p>
+                <p>Has Toilet: {{ 'Yes' if cafe.has_toilet else 'No' }}</p>
+                <p>Has Wi-Fi: {{ 'Yes' if cafe.has_wifi else 'No' }}</p>
+                <p>Has Sockets: {{ 'Yes' if cafe.has_sockets else 'No' }}</p>
+                <p>Can Take Calls: {{ 'Yes' if cafe.can_take_calls else 'No' }}</p>
+                <p>Price of Coffee: {{ cafe.coffee_price or 'N/A' }}</p>
+                <img src="{{ cafe.img_url }}" alt="{{ cafe.name }}" width="300">
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
